@@ -1,3 +1,276 @@
-<p>
-  dragula works!
-</p>
+<mat-card class="app-card">
+  <mat-tab-group>
+
+    <!-- First example -->
+    <mat-tab label="Simple Example">
+      <div class="dragula-card">
+        <div class="wrapper" fxLayout="row" fxLayoutAlign="space-around center">
+          <div class="container"
+            [dragula]='"first-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>You can move these elements between these two containers</div>
+            <div>Moving them anywhere else isn't possible</div>
+            <div>You can move things around in the same container</div>
+          </div>
+          <div class="container"
+            [dragula]='"first-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>This is the default case</div>
+            <div>more interactive cases lie ahead</div>
+            <div>Make sure to check the docs!</div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- events example -->
+    <mat-tab label="Events">
+      <div class="dragula-card">
+        <div class="wrapper" fxLayout="row" fxLayoutAlign="space-around center">
+          <div class="container"
+            [dragula]='"second-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>'drag' event is fired when you begin dragging an element</div>
+            <div>'remove' is fired if moved outside of containers</div>
+            <div>'shadow' when placeholder shows where an element would be dropped</div>
+            <div>'drop' when dropped in different position to origin</div>
+          </div>
+          <div class="container"
+            [dragula]='"second-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>'cancel' when dropped on invalid target</div>
+            <div>'cloned', fires if 'copy: true'</div>
+            <div>'over' event fires when you drag something over a container</div>
+            <div>'away' event fires when you drag something away from a container</div>
+            <div>'dragend' when dragging ends, irrespective of outcome</div>          
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Remove on spill -->
+    <mat-tab label="Remove on Spill">
+      <div class="dragula-card">
+        <div class="container"
+          [dragula]='"third-bag"'
+          fxLayout="column"
+          fxLayoutAlign="start center"
+        >
+          <div>'One'</div>
+          <div>'Three'</div>
+          <div>'Two'</div>
+          <div>'Four'</div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Return on Spill -->
+    <mat-tab label="Return on Spill">
+      <div class="dragula-card">
+        <div class="container"
+          [dragula]='"fourth-bag"'
+          fxLayout="column"
+          fxLayoutAlign="start center"
+        >
+          <div>'One'</div>
+          <div>'Three'</div>
+          <div>'Two'</div>
+          <div>'Four'</div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Copy on move -->
+    <mat-tab label="Copy On Move">
+      <div class="dragula-card">
+        <div
+          class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around center"
+        >
+          <div class="container"
+            [dragula]='"fifth-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>'One'</div>
+            <div>'Three'</div>
+            <div>'Two'</div>
+            <div>'Four'</div>
+          </div>
+          <div class="container"
+            [dragula]='"fifth-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div>'Five'</div>
+            <div>'Six'</div>
+            <div>'Seven'</div>
+            <div>'Eight'</div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Using a handle -->
+    <mat-tab label="Using a Handle"
+      fxLayout="row"
+      fxLayoutAlign="center"
+    >
+      <div class="dragula-card">
+        <div
+          class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around center"
+        >
+          <div class="container"
+            [dragula]='"sixth-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <span
+                class="handle"
+              >
+                x
+              </span>
+              <span>
+                '1'
+              </span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <span
+                class="handle"
+              >
+                x
+              </span>
+              <span>
+                '2'
+              </span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <span
+                class="handle"
+              >
+                x
+              </span>
+              <span>
+                '3'
+              </span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <span
+                class="handle"
+              >
+                x
+              </span>
+              <span>
+                '4'
+              </span>
+            </div>
+          </div>
+          <div class="container"
+            [dragula]='"sixth-bag"'
+            fxLayout="column"
+            fxLayoutAlign="start center"
+          >
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <span
+                class="handle"
+              >
+                x
+              </span>
+              <span>
+                '5'
+              </span>
+            </div>
+            <div>'Six'</div>
+            <div>'Seven'</div>
+            <div>'Eight'</div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- amending models with drag and drop -->
+    <mat-tab label="*ngFor simple models">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-between"
+        class="rows"
+      >
+        <div class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around"
+        >
+          <div class="container"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            [dragula]='"another-bag"' 
+            [dragulaModel]='many'>
+            <div *ngFor='let text of many' [innerHtml]='text'></div>
+          </div>
+          <div class="container"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            [dragula]='"another-bag"'
+            [dragulaModel]='many2'>
+            <div *ngFor='let text of many2' [innerHtml]='text'></div>
+          </div>
+        </div>
+        <div
+          class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around center"
+        >
+          <div>{{many.toString()}}</div>
+          <div>{{many2.toString()}}</div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- *ngFor more complex models -->
+    <mat-tab label="*ngFor Nested Models">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-between"
+        class="rows"
+      >
+        <div class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around"
+        >
+          <div class="container"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            *ngFor='let group of groups'
+            [dragula]="'nested-bag'"
+          >
+            <div
+              *ngFor='let item of group.items'
+              [innerHtml]='item.name'
+            >
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrapper"
+          fxLayout="row"
+          fxLayoutAlign="space-around"
+        >
+          <div>{{printGroupA()}}</div>
+          <div>{{printGroupB()}}</div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</mat-card>

@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DragulaComponent } from './dragula/dragula.component';
 
 import { DragulaRoutingModule } from './dragula-routing.module';
+import { MaterialModule } from '../material/material.module';
+import { DragulaModule } from 'ng2-dragula';
+
+import { DragulaComponent } from './dragula/dragula.component';
+import { DragulaChatComponent } from './dragula-chat/dragula-chat.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    DragulaRoutingModule
+    DragulaModule,
+    DragulaRoutingModule,
+    MaterialModule
   ],
   exports: [
-    DragulaComponent
   ],
-  declarations: [DragulaComponent]
+  declarations: [
+    DragulaComponent,
+    DragulaChatComponent
+  ]
 })
-export class DragulaModule { }
+export class MyDragulaModule { }

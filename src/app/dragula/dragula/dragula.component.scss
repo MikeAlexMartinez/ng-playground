@@ -1,0 +1,40 @@
+@import '../../../styles/variables';
+@import '~dragula/dist/dragula.css';
+
+.dragula-card {
+  padding: 15px;
+}
+
+.container {
+  width: 50%;
+  padding: 5px; 
+  margin: 5px;
+
+  background-color: $primary-color;
+
+  div {
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    
+    background-color: $accent-color;
+
+    text-align: center;
+    color: $primary-color-text;
+
+    cursor: grab;
+  }
+
+  .ex-moved {
+    background-color: #e74c3c;
+  }
+
+  span.handle {
+    background-color: $primary-text-color;
+    padding: 3px 15px;
+  }
+
+  .rows {
+    width: 100%;
+  }
+}

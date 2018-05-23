@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // My modules
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
-import { DragulaModule } from './dragula/dragula.module';
+import { MyDragulaModule } from './dragula/dragula.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     MaterialModule,
-    DragulaModule,
+    MyDragulaModule,
     AppRoutingModule
   ],
   providers: [],
