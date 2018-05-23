@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { DragulaModule } from 'src/app/dragula/dragula.module';
+
+const routes: Routes = [
+  {
+    path: 'dragula',
+    component: DragulaModule 
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
