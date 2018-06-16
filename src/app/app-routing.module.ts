@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './resize/resize.module#ResizeModule'
   },
   {
+    path: 'scroll',
+    loadChildren: './scroll/scroll.module#ScrollModule'
+  },
+  {
     path: '',
     pathMatch: 'full',
     component: HomeComponent

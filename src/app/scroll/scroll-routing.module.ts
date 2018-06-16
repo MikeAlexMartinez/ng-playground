@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ContainerComponent } from './container/container.component';
+import { ScrollDemoComponent } from './scroll-demo/scroll-demo.component';
 
-const routes = [
-  {
-    path: 'resize',
-    component: ContainerComponent
-  }
+const routes: Routes = [
+  { path: 'scroll', component: ScrollDemoComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ResizeRoutingModule { }
+export class ScrollRoutingModule {}
