@@ -4,11 +4,12 @@
     <!-- First example -->
     <mat-tab label="Simple Example">
       <div class="dragula-card">
-        <div class="wrapper" fxLayout="row" fxLayoutAlign="space-around center">
+        <div class="wrapper" fxLayout="row" fxLayoutAlign="start space-around">
           <div class="container"
             [dragula]='"first-bag"'
             fxLayout="column"
-            fxLayoutAlign="start center"
+            fxLayoutAlign="start stretch"
+            fxFlex="1 1 50%"
           >
             <div>You can move these elements between these two containers</div>
             <div>Moving them anywhere else isn't possible</div>
@@ -17,7 +18,8 @@
           <div class="container"
             [dragula]='"first-bag"'
             fxLayout="column"
-            fxLayoutAlign="start center"
+            fxLayoutAlign="start stretch"
+            fxFlex="1 1 50%"
           >
             <div>This is the default case</div>
             <div>more interactive cases lie ahead</div>

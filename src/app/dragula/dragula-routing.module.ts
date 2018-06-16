@@ -6,13 +6,12 @@ import { DragulaChatComponent } from './dragula-chat/dragula-chat.component';
 
 const routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    component: DragulaComponent
-  },
-  {
     path: 'chat',
     component: DragulaChatComponent
+  },
+  {
+    path: 'dragula',
+    component: DragulaComponent
   }
 ];
 

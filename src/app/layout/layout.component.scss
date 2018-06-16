@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.active-app-container {
+  padding: $padding-md;
+  background-color: $primary-color-light;
+  z-index: 0;
+
+  height: calc(100vh - #{$toolbar-height});
+
+}
+
+.mat-toolbar {
+  overflow: visible;
+  position: relative;
+  z-index: 20;
+  height: $toolbar-height;
+
+  box-shadow: 5px 0 10px rgba(0,0,0,0.7);
+}
+
+.links {
+  
+  a {
+    text-decoration: none;
+  }
+
+  mat-icon {
+    margin: 0 15px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center center;
+  }
+}

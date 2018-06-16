@@ -1,18 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { DragulaService } from 'ng2-dragula';
-
 
 @Component({
   selector: 'app-dragula-sample',
   templateUrl: './dragula.component.html',
   styleUrls: ['./dragula.component.scss']
 })
-export class DragulaComponent implements OnInit {
+export class DragulaComponent implements OnInit, OnDestroy {
 
   // models for simple model example
   public many: Array<string> = ['The', 'possibilities', 'are', 'endless'];
   public many2: Array<string> = ['Explore', 'Them'];
+
+  public bags: string[] = [
+    'first-bag',
+    'second-bag',
+    'third-bag',
+    'fourth-bag',
+    'fifth-bag',
+    'sixth-bag',
+    'another-bag',
+    'nested-bag'
+  ];
 
   // more complex model
   public groups: Array<any> = [
@@ -46,7 +56,7 @@ export class DragulaComponent implements OnInit {
 
   constructor(
     private dragulaService: DragulaService
-  ) { 
+  ) {
     dragulaService.setOptions('third-bag', {
       removeOnSpill: true
     });
@@ -63,16 +73,16 @@ export class DragulaComponent implements OnInit {
       isContainer: function(el) {
         // only drake.containers are accessible
         // by default
-        return false; 
+        return false;
       },
       // if moves function returns true,
       // move is enabled
       moves: (el, source, handle, sibling) => {
         console.groupCollapsed('Accepts');
-        console.log("el", el);
-        console.log("source", source);
-        console.log("handle", handle);
-        console.log("sibling", sibling);
+        console.log('el', el);
+        console.log('source', source);
+        console.log('handle', handle);
+        console.log('sibling', sibling);
         console.groupEnd();
         return handle.className === 'handle';
       },
@@ -123,7 +133,7 @@ export class DragulaComponent implements OnInit {
     this.dragulaService.out.subscribe((value) => {
       console.log('out!');
       console.log(value);
-      
+
       if (value[0] === 'second-bag') {
         this.onOut(value.slice(1));
       }
@@ -143,16 +153,23 @@ export class DragulaComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    // Need to destroy bags as it isn't done automatically.
+    this.bags.forEach(bag => {
+      this.dragulaService.destroy(bag);
+    });
+  }
+
   // These methods are used to demonstrate model
   // changes
   private onDropModel(args) {
-    let [el, target, source] = args;
+    const [el, target, source] = args;
     // do something else
-    console.log(args)
+    console.log(args);
   }
 
   private onRemoveModel(args) {
-    let [el, source] = args;
+    const [el, source] = args;
     // do something else
   }
 
@@ -175,22 +192,22 @@ export class DragulaComponent implements OnInit {
   }
 
   private onDrag(args) {
-    let [e, el] = args;
+    const [e, el] = args;
     this.removeClass(e, 'ex-moved');
   }
 
   private onDrop(args) {
-    let [e, el] = args;
+    const [e, el] = args;
     this.addClass(e, 'ex-moved');
   }
 
   private onOver(args) {
-    let [e, el, container] = args;
+    const [e, el, container] = args;
     this.addClass(el, 'ex-over');
   }
 
   private onOut(args) {
-    let [e, el, container] = args;
+    const [e, el, container] = args;
     this.removeClass(el, 'ex-over');
   }
 

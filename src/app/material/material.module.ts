@@ -8,25 +8,29 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Angular Material component modules
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import {MatTabsModule} from '@angular/material/tabs';
+import {
+  MatToolbarModule,
+  MatCardModule,
+  MatTabsModule,
+  MatProgressSpinnerModule,
+  MatIconModule
+} from '@angular/material';
+
+const COMPONENTS = [
+  MatToolbarModule,
+  MatCardModule,
+  MatTabsModule,
+  MatProgressSpinnerModule,
+  MatIconModule
+];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatTabsModule,
-    FlexLayoutModule,
-  ],
-  exports: [
-    FlexLayoutModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatTabsModule
-  ],
+    FlexLayoutModule
+  ].concat(COMPONENTS),
+  exports: COMPONENTS,
   declarations: []
 })
 export class MaterialModule { }

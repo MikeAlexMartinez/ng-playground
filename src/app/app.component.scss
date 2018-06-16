@@ -1,19 +1,1 @@
 @import '../styles/variables';
-
-.active-app-container {
-  padding: $padding-md;
-  background-color: $primary-color-light;
-  z-index: 0;
-
-  height: calc(100vh - #{$toolbar-height});
-
-}
-
-.mat-toolbar {
-  overflow: visible;
-  position: relative;
-  z-index: 20;
-  height: $toolbar-height;
-
-  box-shadow: 5px 0 10px rgba(0,0,0,0.7);
-}

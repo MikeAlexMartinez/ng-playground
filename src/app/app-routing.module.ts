@@ -1,12 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MyDragulaModule } from 'src/app/dragula/dragula.module';
+// Components
+import { LayoutComponent } from './layout/layout.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: 'dragula',
-    component: MyDragulaModule 
+    loadChildren: './dragula/dragula.module#MyDragulaModule'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
