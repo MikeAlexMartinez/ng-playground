@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: './dragula/dragula.module#MyDragulaModule'
   },
   {
+    path: 'resize',
+    loadChildren: './resize/resize.module#ResizeModule'
+  },
+  {
     path: '',
     pathMatch: 'full',
     component: HomeComponent

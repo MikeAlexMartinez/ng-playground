@@ -1,0 +1,26 @@
+.my-resize {
+  position: relative;
+  height: 250px;
+}
+
+.top {
+  height: 50%;
+  background-color: gainsboro;
+}
+.bottom {
+  height: 50%;
+  background-color: grey;
+
+  padding: 10px;
+}
+.input-container {
+  position: relative;
+}
+.input-textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}

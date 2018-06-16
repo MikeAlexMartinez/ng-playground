@@ -1,0 +1,35 @@
+<div class="my-resize"
+  fxLayout="column"
+  fxLayoutAlign="start stretch"
+>
+  <div
+    class="top"
+    [ngStyle]="topStyle"
+    mwlResizable
+    [validateResize]="validate"
+    [resizeEdges]="{top: false, right: false, bottom: true, left: false}"
+    [enableGhostResize]="true"
+    (resizeEnd)="onResizeTop($event)"
+  >
+    {{topHeight}}
+  </div>
+  <div 
+    class="bottom"
+    [ngStyle]="bottomStyle"
+    mwlResizable
+    [validateResize]="validate"
+    [resizeEdges]="{top: true, right: false, bottom: false, left: false}"
+    [enableGhostResize]="true"
+    (resizeEnd)="onResizeBottom($event)"
+  > 
+    <div
+      fxFlexFill
+      class="input-container"
+    >
+      <textarea
+        class="input-textarea"
+      >
+      </textarea>
+    </div>
+  </div>
+</div>

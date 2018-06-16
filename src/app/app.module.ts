@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { MyDragulaModule } from './dragula/dragula.module';
+import { ResizeModule } from './resize/resize.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     MaterialModule,
     MyDragulaModule,
+    ResizeModule,
     AppRoutingModule
   ],
   entryComponents: [
